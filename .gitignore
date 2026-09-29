@@ -1,0 +1,23 @@
+node_modules
+dist
+.vite
+src-tauri/target
+*.tsbuildinfo
+vite.config.js
+vite.config.d.ts
+*.log
+.DS_Store
+
+# Local configuration and application data
+.env
+.env.*
+!.env.example
+*.db
+*.db-wal
+*.db-shm
+
+# Windows shell metadata
+Thumbs.db
+
+# Local assistant workspace settings
+.claude/

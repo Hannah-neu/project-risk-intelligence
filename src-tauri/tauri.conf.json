@@ -1,0 +1,37 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "Project Risk Intelligence",
+  "version": "0.1.0",
+  "identifier": "com.projectrisk.intelligence",
+  "build": {
+    "beforeDevCommand": "npm run dev",
+    "devUrl": "http://localhost:1420",
+    "beforeBuildCommand": "npm run build",
+    "frontendDist": "../dist"
+  },
+  "app": {
+    "windows": [{
+      "title": "Project Risk Intelligence",
+      "width": 1440,
+      "height": 900,
+      "minWidth": 1100,
+      "minHeight": 720,
+      "maximized": true,
+      "resizable": true,
+      "center": true
+    }],
+    "security": { "csp": null }
+  },
+  "bundle": {
+    "active": true,
+    "targets": "all",
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.ico",
+      "icons/icon.icns"
+    ],
+    "shortDescription": "Project portfolio and risk intelligence for PMOs"
+  }
+}

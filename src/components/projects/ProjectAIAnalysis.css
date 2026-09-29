@@ -1,0 +1,27 @@
+.project-ai-analysis-card { grid-column: 1 / -1; }
+.project-ai-analysis-header { min-height: 83px; padding: 17px 19px; display: flex; align-items: center; gap: 12px; border-bottom: 1px solid #edf0f4; }
+.project-ai-analysis-icon { width: 37px; height: 37px; flex: 0 0 37px; display: grid; place-items: center; border-radius: 10px; color: #5a52cc; background: #f0efff; }
+.project-ai-analysis-heading { min-width: 0; flex: 1; }
+.project-ai-analysis-heading h2 { margin: 0; color: #263248; font-family: "Plus Jakarta Sans", sans-serif; font-size: 16px; letter-spacing: -.025em; }
+.project-ai-analysis-heading p { margin: 4px 0 0; color: #8792a4; font-size: 12px; }
+.project-ai-analysis-actions { display: flex; align-items: center; gap: 10px; }
+.project-ai-analysis-actions label { display: flex; align-items: center; gap: 7px; color: #69768b; font-size: 12px; font-weight: 700; }
+.project-ai-analysis-actions select { height: 36px; padding: 0 8px; border: 1px solid #dfe4eb; border-radius: 8px; color: #344054; background: #fff; font-size: 12px; }
+.project-ai-analysis-actions button { min-height: 38px; padding: 0 13px; display: inline-flex; align-items: center; justify-content: center; gap: 8px; border: 1px solid #5b52d9; border-radius: 9px; color: #fff; background: #5b52d9; font-size: 12px; font-weight: 800; cursor: pointer; white-space: nowrap; }
+.project-ai-analysis-actions button:hover:not(:disabled) { background: #473dbf; }
+.project-ai-analysis-actions button:disabled { opacity: .66; cursor: wait; }
+.project-ai-analysis-note, .project-ai-analysis-progress { margin: 0; padding: 23px 20px; color: #748094; font-size: 13px; }
+.project-ai-analysis-progress { display: flex; align-items: center; gap: 8px; color: #5448c5; }
+.project-ai-analysis-error { margin: 15px 19px; padding: 11px 13px; border: 1px solid #f5c7ce; border-radius: 9px; color: #a61b2b; background: #fff4f5; font-size: 13px; }
+.project-ai-analysis-error a { color: #8c1930; font-weight: 800; }
+.project-ai-analysis-body { padding: 19px 21px 23px; }
+.project-ai-analysis-stale { margin-bottom: 14px; padding: 11px 13px; display: grid; gap: 3px; border: 1px solid #f6d995; border-radius: 9px; color: #8f5f10; background: #fffbef; font-size: 12px; }
+.project-ai-analysis-stale strong { font-size: 13px; }
+.project-ai-analysis-meta { display: flex; flex-wrap: wrap; gap: 8px 17px; color: #8090a4; font-size: 12px; }
+.project-ai-analysis-meta span + span { position: relative; }
+.project-ai-analysis-meta span + span::before { content: "·"; position: absolute; left: -11px; color: #b2bbca; }
+.project-ai-analysis-content { margin-top: 15px; padding: 17px 19px; border: 1px solid #e8ecf3; border-radius: 10px; color: #344054; background: #fbfcff; font-size: 13px; line-height: 1.7; white-space: pre-wrap; overflow-wrap: anywhere; }
+@media (max-width: 800px) {
+  .project-ai-analysis-header { align-items: flex-start; flex-wrap: wrap; }
+  .project-ai-analysis-actions { width: 100%; justify-content: space-between; padding-left: 49px; }
+}

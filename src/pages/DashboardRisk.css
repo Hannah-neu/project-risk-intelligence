@@ -1,0 +1,38 @@
+.dashboard-risk-grid {
+  flex: 1 1 auto;
+  min-width: 0;
+  min-height: 0;
+  margin-top: 14px;
+  display: grid;
+  grid-template-columns: minmax(340px, .8fr) minmax(520px, 1.2fr);
+  gap: 16px;
+  align-items: stretch;
+}
+.dashboard-risk-grid > .card {
+  min-width: 0;
+  min-height: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.dashboard-risk-grid .risk-section-header,
+.dashboard-risk-grid .risk-dimension-tabs,
+.dashboard-risk-grid .risk-chart-legend { flex: 0 0 auto; }
+.dashboard-risk-grid .risk-donut-body { flex: 1 1 auto; min-height: 260px; height: auto; }
+.dashboard-risk-grid .risk-bar-chart { flex: 1 1 auto; min-height: 220px; height: 0; }
+.dashboard-risk-loading > .card {
+  border: 1px solid #e8ebf0;
+  border-radius: 14px;
+  background: linear-gradient(100deg, #f5f7fa 20%, #fff 38%, #f5f7fa 56%);
+  background-size: 220% 100%;
+  animation: risk-shimmer 1.35s infinite;
+}
+@media (max-width: 1360px) {
+  .page.dashboard-page { height: auto; min-height: 100dvh; overflow: visible; }
+  .dashboard-risk-grid { flex: 0 0 auto; min-height: 374px; }
+  .dashboard-risk-grid > .card { min-height: 374px; }
+}
+@media (max-width: 1200px) {
+  .dashboard-risk-grid { grid-template-columns: minmax(0, 1fr); }
+}

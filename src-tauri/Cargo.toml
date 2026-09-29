@@ -1,0 +1,27 @@
+[package]
+name = "project-risk-intelligence"
+version = "0.1.0"
+description = "Project portfolio and risk intelligence for PMOs"
+authors = ["Project Risk Intelligence"]
+edition = "2021"
+
+[lib]
+name = "project_risk_intelligence_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+calamine = { version = "0.36", features = ["chrono"] }
+chrono = { version = "0.4", default-features = false, features = ["clock", "serde"] }
+rusqlite = { version = "0.32", features = ["bundled"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+tauri = { version = "2", features = [] }
+tauri-plugin-dialog = "2"
+thiserror = "2"
+zip = { version = "8.6.0", default-features = false }
+
+[target.'cfg(windows)'.dependencies]
+windows-sys = { version = "0.61", features = ["Win32_Foundation", "Win32_Graphics_Dwm", "Win32_Security_Cryptography", "Win32_Networking_WinHttp"] }

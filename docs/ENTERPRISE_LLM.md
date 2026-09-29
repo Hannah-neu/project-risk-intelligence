@@ -1,0 +1,11 @@
+# Enterprise LLM integration (STEP 13A–13B)
+
+The AI Insights page has an **AI Configuration** link. The Settings tab remains hidden from the sidebar. Supported factual queries continue to use the local SQLite provider. Analytical questions and questions unsupported by local rules route to Enterprise LLM when that provider and a key are configured; otherwise the controlled unsupported answer remains.
+
+The desktop backend sends `POST /v1/messages` to the approved Bosch LiteLLM host with Anthropic Messages JSON, an API key bearer header, UTF-8 content type, and `anthropic-version: 2023-06-01`. Redirects are disabled and no alternate endpoint is accepted.
+
+STEP 13B sends only question-relevant, SQLite-derived structured context. Portfolio questions include exact summary counts, at most eight top-risk projects, a few risk drivers, and a data-quality note. Named-project and current-dataset follow-up questions include at most three selected projects with risk reasons, milestones, and limited component text. Customer questions include at most eight aggregated customer groups. Stage-delay questions include at most eight completed-delay records. Context is capped at 16 KB and no Excel file or full database is sent. Up to two short recent messages may accompany a follow-up. The system instruction prohibits inventing facts or treating top-N selections as exhaustive.
+
+API keys are encrypted with Windows Data Protection API (DPAPI) for the current Windows user before storage in SQLite. The frontend receives only `hasApiKey`, never the stored key. Windows user profile access is required to encrypt/decrypt; copying the database to another account or device does not transfer the usable credential. The user must enter the key again on that device. This integration is Windows-only; no plaintext fallback is used. Protect the Windows account and application database as usual.
+
+**Test Connection** uses the saved settings and sends a fixed test prompt; save edits first. A successful result proves the endpoint returned a usable text response, but not that it can answer project questions. The test requires a valid Enterprise key and network/proxy access. No live Enterprise connection is exercised by automated tests, because credentials are not bundled.

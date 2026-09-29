@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f7f9fc" />
+    <meta name="description" content="Project portfolio and risk intelligence for PMOs." />
+    <link rel="icon" type="image/png" href="/app-icon.png" />
+    <title>Project Risk Intelligence</title>
+    <style>
+      #boot-screen { min-height: 100vh; display: grid; place-content: center; gap: 12px; padding: 24px; color: #344054; background: #f7f9fc; font: 600 14px/1.5 system-ui, sans-serif; text-align: center; }
+      #boot-screen strong { color: #111827; font-size: 18px; }
+      #boot-screen img { width: 56px; height: 56px; margin: 0 auto; object-fit: contain; }
+      #boot-screen small { color: #64748b; font-size: 12px; font-weight: 400; }
+      #boot-retry { display: none; margin: 4px auto 0; padding: 8px 14px; border: 1px solid #d6dce5; border-radius: 8px; color: #344054; background: #fff; font: inherit; cursor: pointer; }
+    </style>
+  </head>
+  <body>
+    <div id="root">
+      <div id="boot-screen" role="status" aria-live="polite">
+        <img src="/app-icon.png" alt="" aria-hidden="true" />
+        <strong>Project Risk Intelligence</strong>
+        <span id="boot-message">Loading application…</span>
+        <small id="boot-detail">Preparing the dashboard.</small>
+        <button id="boot-retry" type="button">Reload application</button>
+      </div>
+    </div>
+    <script type="module" src="/src/main.tsx"></script>
+    <script>
+      window.setTimeout(() => {
+        if (!document.getElementById("boot-screen")) return;
+        const retryKey = "project-risk-boot-retry";
+        if (location.protocol === "http:" && sessionStorage.getItem(retryKey) !== "1") {
+          sessionStorage.setItem(retryKey, "1");
+          location.reload();
+          return;
+        }
+        document.getElementById("boot-message").textContent = "The application is taking longer than expected.";
+        document.getElementById("boot-detail").textContent = "Check that the development server is running, then reload this window.";
+        document.getElementById("boot-retry").style.display = "block";
+      }, 30000);
+      document.getElementById("boot-retry").addEventListener("click", () => location.reload());
+    </script>
+  </body>
+</html>
